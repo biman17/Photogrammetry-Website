@@ -7,9 +7,10 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <!--include the OpenLayers CSS : -->
-    <link rel="stylesheet" href="https://gisedu.itc.utwente.nl/exercise/libraries/openlayers/v4.6.4/ol.css" type="text/css" />
+    <link rel="stylesheet" href="https://gisedu.itc.utwente.nl/exercise/libraries/openlayers/v4.6.4/ol.css"
+        type="text/css" />
 
-    
+
     <title>GFM - Group Project</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -82,20 +83,6 @@
     <!-- Projects-->
     <section class="projects-section bg-light" id="products">
         <div class="container">
-            <!-- Featured Project Row-->
-            <div id="map_container">
-                <div id="legend" >
-                    <input type="checkbox" checked onchange="naturalearth.setVisible(!naturalearth.getVisible())">
-                    <label for="DEM">DEM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp </label>
-                    <input type="checkbox" checked onchange="ortho2.setVisible(!ortho2.getVisible())">
-                    <label for="ortho">Orthophoto &#160;&nbsp;&nbsp;&nbsp </label>
-                    <input type="checkbox" unchecked onchange="quality1.setVisible(!quality1.getVisible())">
-                    <label for="quality1">Quality of DSM (0.1m)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp </label>
-                    <div id="map_container"></div>
-                </div>
-            </div>
-            <br>
-            
             <!-- Project One Row-->
             <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
                 <div class="col-lg-6"><img class="img-fluid" src="img/dtm.png" alt="" /></div>
@@ -132,6 +119,21 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <br>
+            <!-- Featured Project Row-->
+            <div id="map_container">
+                <div id="legend">
+                    <input type="checkbox" checked onchange="naturalearth.setVisible(!naturalearth.getVisible())">
+                    <label for="DEM">DEM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp </label>
+                    <input type="checkbox" checked onchange="ortho2.setVisible(!ortho2.getVisible())">
+                    <label for="ortho">Orthophoto &#160;&nbsp;&nbsp;&nbsp </label>
+                    <input type="checkbox" unchecked onchange="quality1.setVisible(!quality1.getVisible())">
+                    <label for="quality1">Quality of DSM (0.1m)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp </label>
+                    <div id="map_container"></div>
+                </div>
+            </div>
+            <br>
         </div>
     </section>
 
@@ -307,7 +309,8 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <!--include the OpenLayers API :-->
-    <script src="https://gisedu.itc.utwente.nl/exercise/libraries/openlayers/v4.6.4/ol.js" type="text/javascript"></script>
+    <script src="https://gisedu.itc.utwente.nl/exercise/libraries/openlayers/v4.6.4/ol.js"
+        type="text/javascript"></script>
     <script src="js/viewer.js"></script>
 
 </body>
