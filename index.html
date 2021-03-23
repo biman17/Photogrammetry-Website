@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <!--include the OpenLayers CSS : -->
+    <link rel="stylesheet" href="https://gisedu.itc.utwente.nl/exercise/libraries/openlayers/v4.6.4/ol.css" type="text/css" />
+
+    
     <title>GFM - Group Project</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -19,7 +23,7 @@
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="init()">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Photogrammetric Web Mapping</a>
@@ -79,18 +83,20 @@
     <section class="projects-section bg-light" id="products">
         <div class="container">
             <!-- Featured Project Row-->
-            <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-                <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="img/bg-masthead.jpg"
-                        alt="" /></div>
-                <div class="col-xl-4 col-lg-5">
-                    <div class="featured-text text-center text-lg-left">
-                        <h4>Shoreline</h4>
-                        <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use
-                            it for any project - even commercial projects! Download it, customize it, and publish your
-                            website!</p>
-                    </div>
+            <div id="map_container">
+                <div id="legend" >
+                    <input type="checkbox" checked onchange="naturalearth.setVisible(!naturalearth.getVisible())">
+                    <label for="DEM">DEM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp </label>
+                    <input type="checkbox" checked onchange="ortho2.setVisible(!ortho2.getVisible())">
+                    <label for="ortho">Orthophoto &#160;&nbsp;&nbsp;&nbsp </label>
+                    <input type="checkbox" unchecked onchange="quality1.setVisible(!quality1.getVisible())">
+                    <label for="quality1">Quality of DSM (0.1m)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp </label>
+                    <div id="map_container"></div>
+            
                 </div>
             </div>
+            <br>
+            
             <!-- Project One Row-->
             <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
                 <div class="col-lg-6"><img class="img-fluid" src="img/dtm.png" alt="" /></div>
@@ -109,6 +115,7 @@
                     </div>
                 </div>
             </div>
+            <br>
             <!-- Project Two Row-->
             <div class="row justify-content-center no-gutters">
                 <div class="col-lg-6"><img class="img-fluid" src="img/dsm.png" alt="" /></div>
@@ -155,7 +162,7 @@
                 <div class="col-md-4 mb-3 mb-md-0">
                     <div class="card py-4 h-100">
                         <div class="card-body text-center">
-                            <img class="img-fluid" src="img/biman.jpg" alt="" />
+                            <img class="img-fluid" src="img/biman.jpeg" alt="" />
                             <hr class="my-4" />
                             <h4 class="text-uppercase m-0">Biman Biswas</h4>
                             <div class="small text-black-50">b.biswas@student.utwente.nl</div>
@@ -193,6 +200,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <!--include the OpenLayers API :-->
+    <script src="https://gisedu.itc.utwente.nl/exercise/libraries/openlayers/v4.6.4/ol.js" type="text/javascript"></script>
+    <script src="js/viewer.js"></script>
+
 </body>
 
 </html>
