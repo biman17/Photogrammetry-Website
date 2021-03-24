@@ -23,11 +23,17 @@ function init() {
   navMap.addLayer(dtm);
 
 
-  myMap.setView(
-    //center coords and zoom level:
-    new ol.View({ center: [37.8924,6.8867], zoom: 6 })
+  navMap.setView(
+    new ol.View({
+      center: ol.proj.transform([37.8546, 6.9517], 'EPSG:4326', 'EPSG:3857'),
+      zoom: 14
+    })    //center coords and zoom level:
   );
-navMap.addControl(new ol.control.Zoom());
-navMap.addControl(new ol.control.ScaleLine());
-
+  navMap.addControl(new ol.control.Zoom());
+  navMap.addControl(new ol.control.ScaleLine());
+  navMap.addControl(new ol.control.MousePosition({
+    projection: 'EPSG:4326',
+    coordinateFormat: ol.coordinate.createStringXY(4)
+  })
+  );
 }
