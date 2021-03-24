@@ -1,19 +1,19 @@
 MAP
-    NAME "Netherlands"
+    NAME "Bodity"
     IMAGECOLOR 255 255 255
     SIZE 600 800
     IMAGETYPE PNG24
     PROJECTION
         "init=epsg:4326" #latlon on WGS84
     END #default projection
-    EXTENT 97.3 5.6 105.7 20.5 # lon/lat extents of Thailand
+    EXTENT 6.9 37.8 6.9 37.8 # lon/lat extents of Boditi
     WEB
         METADATA
             "ows_enable_request" "*"
-            "map" "d:/iishome/student/s2451573/q3_group_web/Photogrammetry-Website/configWMS.map"
+            "map" "d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map"
             "ows_schemas_location" "http://schemas.opengeospatial.net"
             "ows_title" "PhotogrammetryWMS"
-            "ows_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/q3_group_web/Photogrammetry-Website/configWMS.map&"
+            "ows_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&"
             "ows_srs" "EPSG:4326 EPSG:3857" #latlon
             "wms_feature_info_mime_type" "text/plain"
             "wms_feature_info_mime_type" "text/html"
@@ -24,9 +24,29 @@ MAP
     END #web
 
 
-LAYER
-    NAME "ortho"
-    DATA "data\dem_mean_filled.tif"
-    TYPE RASTER
-    STATUS ON
-  END
+    LAYER
+        NAME dtm
+        STATUS ON
+     
+        # layer type for raster data:
+        TYPE RASTER
+     
+        # the value below makes sure that you do NOT see the layer
+        # if you zoom in to a scale  larger then 1:1 million:
+        MINSCALE 1000000
+     
+        # DATA is now just a simple path to the file:
+        DATA "https://gisedu.itc.utwente.nl/student/s2578956/Photogrammetry-Website/data/ahn1_filled.tif"
+     
+        METADATA
+            "ows_title" "dtm"
+        END
+        PROJECTION
+         "init=epsg:4326"
+        END
+     
+        # this sets the opacity to 40%
+        # (equals a transparency of 60%)
+        OPACITY 40
+     
+    END # layer dtm
