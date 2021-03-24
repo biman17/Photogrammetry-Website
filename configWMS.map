@@ -6,7 +6,7 @@ MAP
     PROJECTION
         "init=epsg:4326" #latlon on WGS84
     END #default projection
-    EXTENT 6.9 37.8 6.9 37.8 # lon/lat extents of Boditi
+    EXTENT 36.82 6.3 39.85 7.9 # lon/lat extents of Boditi
     WEB
         METADATA
             "ows_enable_request" "*"
