@@ -33,20 +33,34 @@ MAP
      
         # the value below makes sure that you do NOT see the layer
         # if you zoom in to a scale  larger then 1:1 million:
-        MINSCALE 1000000
      
         # DATA is now just a simple path to the file:
-        DATA "https://gisedu.itc.utwente.nl/student/s2578956/Photogrammetry-Website/data/ahn1_filled.tif"
-     
+        DATA "https://gisedu.itc.utwente.nl/student/s2578956/Photogrammetry-Website/data/bodity_reprojected.tif"
+
+        CLASSITEM "[pixel]"
         METADATA
             "ows_title" "dtm"
         END
         PROJECTION
          "init=epsg:4326"
         END
-     
-        # this sets the opacity to 40%
-        # (equals a transparency of 60%)
-        OPACITY 40
+        CLASS
+
+            EXPRESSION ([pixel] >= 1840 AND [pixel] < 2126)
+          
+            STYLE
+          
+              COLORRANGE 0 128 70 250 180 0 
+          
+              DATARANGE 1840 2126
+          
+              RANGEITEM "pixel"
+          
+            END #STYLE
+          
+          END 
+        #   OPACITY 60
      
     END # layer dtm
+
+END
