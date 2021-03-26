@@ -10,7 +10,7 @@ MAP
     WEB
         METADATA
             "ows_enable_request" "*"
-            "map" "d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map"
+            "map" "d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map"
             "ows_schemas_location" "http://schemas.opengeospatial.net"
             "ows_title" "PhotogrammetryWMS"
             "ows_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&"
@@ -23,7 +23,6 @@ MAP
         END #web metadata
     END #web
 
-
     LAYER
         NAME dtm
         STATUS ON
@@ -35,7 +34,7 @@ MAP
         # if you zoom in to a scale  larger then 1:1 million:
      
         # DATA is now just a simple path to the file:
-        DATA "https://gisedu.itc.utwente.nl/student/s2578956/Photogrammetry-Website/data/bodity_reprojected.tif"
+        DATA "data/bodity_reprojected.tif"
 
         CLASSITEM "[pixel]"
         METADATA
@@ -63,4 +62,24 @@ MAP
      
     END # layer dtm
 
+    
+    # LAYER
+    #     NAME contour
+    #     TYPE LINE
+    #     TOLERANCE 5
+    #     TOLERANCEUNITS pixels
+    #     STATUS ON
+    #     PROJECTION
+    #         "init=epsg:4326"
+    #     END #layer projection
+    #     DATA "data/contour.shp"
+    #     CLASS
+    #         NAME "contour"
+    #         STYLE
+    #           COLOR 255 0 0
+    #           WIDTH 2
+    #         END #style
+    #       END #class
+    # END
+    
 END
