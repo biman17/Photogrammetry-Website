@@ -9,21 +9,13 @@ function init() {
   // define layer as tiled map:
   osmLayer = new ol.layer.Tile({
     title: 'OpenStreetMap',
+    baseLayer: 'true',
     // load OSM (a connector predefined in the API) as source:
     source: new ol.source.OSM()
   });
-
-  dtm = new ol.layer.Tile({
-    title: 'DTM (5m)',
-    visible: true,
-    source: new ol.source.TileWMS({
-      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
-      params: { "LAYERS": "dtm", "TILED": true }
-    })
-  });
-
   bingAerial = new ol.layer.Tile({
     title: 'Bing Aerial',
+    baseLayer: 'true',
     visible: true,
     preload: Infinity,
     source: new ol.source.BingMaps({
@@ -36,11 +28,40 @@ function init() {
         maxZoom: 19
     })
   });
-  // add layer to map:
-  navMap.addLayer(osmLayer);
-  navMap.addLayer(bingAerial);
+
+  dtm = new ol.layer.Tile({
+    title: 'DTM (5m)',
+    visible: true,
+    source: new ol.source.TileWMS({
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
+      params: { "LAYERS": "dtm", "TILED": true }
+    })
+  });
+
+  // contour = new ol.layer.Tile({
+  //   title: 'Contour (5m)',
+  //   visible: true,
+  //   source: new ol.source.TileWMS({
+  //     url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
+  //     params: { "LAYERS": "contour", "TILED": true }
+  //   })
+  // });
+
+
+
+  var baseLayers = new ol.layer.Group({
+    title: 'Base Layers',
+    openInLayerSwitcher: true,
+    layers: [
+      osmLayer,
+      bingAerial
+    ]
+  });
+
+  navMap.addLayer(baseLayers);
   // create a map view:
   navMap.addLayer(dtm);
+  // navMap.addLayer(contour_5m);  
 
 
 
@@ -57,12 +78,13 @@ function init() {
     coordinateFormat: ol.coordinate.createStringXY(4)
   })
   );
-  var layerSwitcher = new LayerSwitcher({
-    reverse: true,
-    groupSelectStyle: 'children',
-    type: 'base'
-  });
-  navMap.addControl(layerSwitcher);
 
+  var switcher = new ol.control.LayerSwitcher();
+  navMap.addControl(switcher);
+
+  switcher.on('drawlist', function(e) {
+  console.log('Switcher drawlist');
+
+})
   
 }
