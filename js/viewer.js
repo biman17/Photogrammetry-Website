@@ -10,13 +10,14 @@ function init() {
   osmLayer = new ol.layer.Tile({
     title: 'OpenStreetMap',
     baseLayer: 'true',
+    visible: true,
     // load OSM (a connector predefined in the API) as source:
     source: new ol.source.OSM()
   });
   bingAerial = new ol.layer.Tile({
     title: 'Bing Aerial',
     baseLayer: 'true',
-    visible: true,
+    visible: false,
     preload: Infinity,
     source: new ol.source.BingMaps({
       // We need a key to get the layer from the provider. 
@@ -33,16 +34,16 @@ function init() {
     title: 'DTM (5m)',
     visible: true,
     source: new ol.source.TileWMS({
-      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
       params: { "LAYERS": "dtm", "TILED": true }
     })
   });
 
   contour = new ol.layer.Tile({
-    title: 'Contour (2 0m)',
+    title: 'Contour (20m)',
     visible: true,
     source: new ol.source.TileWMS({
-      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
       params: { "LAYERS": "contour", "TILED": true }
     })
   });
@@ -79,12 +80,44 @@ function init() {
   })
   );
 
-  var switcher = new ol.control.LayerSwitcher();
+  navMap.on('singleclick', function(evt) {
+    // first clear the contents of the results div:
+    document.getElementById("queryresultsDiv").innerHTML = "";
+    // retrieve map resolution details from the map object
+    var viewResolution = navMap.getView().getResolution();
+    // now create a url with an OGC GetFeatureInfo request:
+    var url = contour.getSource().getGetFeatureInfoUrl(
+      evt.coordinate, viewResolution, 'EPSG:4326',
+      {'INFO_FORMAT': 'text/plain',  //format to ask info in
+        'QUERY_LAYERS': 'dtm,contour'} //layers to ask info for
+    );
+    // an iframe in the div fires the request and retrieves the results:
+    document.getElementById("queryresultsDiv").innerHTML =
+      '<iframe height="100%" seamless src="' + url + '"></iframe>';
+  });
+
+
+  var updateLegend = function (resolution) {
+    var graphicUrl = dtm.getLegendUrl(resolution);
+    var img = document.getElementById('legend');
+    img.src = graphicUrl;
+  };
+
+  
+  var switcher = new ol.control.LayerSwitcher({
+    tipLabel: 'Layers',
+    useLegendGraphics: true,
+    collapsed: false
+  });
   navMap.addControl(switcher);
 
   switcher.on('drawlist', function (e) {
     console.log('Switcher drawlist');
 
   })
+  navMap.getView().on('change:resolution', function (event) {
+    var resolution = event.target.getResolution();
+    updateLegend(resolution);
+  });
 
 }
