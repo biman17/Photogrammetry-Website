@@ -44,7 +44,7 @@ MAP
          "init=epsg:4326"
         END
         CLASS
-
+        NAME "Elevation: 1840 - 2126m"
             EXPRESSION ([pixel] >= 1840 AND [pixel] <= 2126)
           
             STYLE
@@ -70,23 +70,12 @@ LAYER
     PROCESSING "CONTOUR_ITEM=elevation"
     PROCESSING "CONTOUR_INTERVAL=20"
     CLASS
+      NAME "contour"
+
       STYLE
         WIDTH 0.5
         COLOR 0 0 0
       END
     END
   END #layer
-
-LEGEND
-  KEYSIZE 16 12
-  LABEL
-      COLOR 0 0 0
-      TYPE TRUETYPE
-      FONT "arial"
-      SIZE 10
-  END #label
-  STATUS ON
-  POSITION LR
-END #legend
-
 END

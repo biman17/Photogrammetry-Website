@@ -80,7 +80,7 @@ function init() {
   })
   );
 
-  navMap.on('singleclick', function(evt) {
+  navMap.on('singleclick', function (evt) {
     // first clear the contents of the results div:
     document.getElementById("queryresultsDiv").innerHTML = "";
     // retrieve map resolution details from the map object
@@ -88,8 +88,10 @@ function init() {
     // now create a url with an OGC GetFeatureInfo request:
     var url = contour.getSource().getGetFeatureInfoUrl(
       evt.coordinate, viewResolution, 'EPSG:4326',
-      {'INFO_FORMAT': 'text/plain',  //format to ask info in
-        'QUERY_LAYERS': 'dtm,contour'} //layers to ask info for
+      {
+        'INFO_FORMAT': 'text/plain',  //format to ask info in
+        'QUERY_LAYERS': 'dtm,contour'
+      } //layers to ask info for
     );
     // an iframe in the div fires the request and retrieves the results:
     document.getElementById("queryresultsDiv").innerHTML =
@@ -103,7 +105,7 @@ function init() {
     img.src = graphicUrl;
   };
 
-  
+
   var switcher = new ol.control.LayerSwitcher({
     tipLabel: 'Layers',
     useLegendGraphics: true,
@@ -118,6 +120,24 @@ function init() {
   navMap.getView().on('change:resolution', function (event) {
     var resolution = event.target.getResolution();
     updateLegend(resolution);
+  });
+
+  dtm.on('precompose', function (evt) {
+    evt.context.imageSmoothingEnabled = false;
+    evt.context.webkitImageSmoothingEnabled = false;
+    evt.context.mozImageSmoothingEnabled = false;
+    evt.context.msImageSmoothingEnabled = false;
+  });
+
+  navMap.on('pointermove', function (evt) {
+    navMap.forEachLayerAtPixel(evt.pixel, function (layer, pixel) {
+      pixelRatio = window.devicePixelRatio;
+      var height = + ((pixel[0] * 256 + pixel[1] * 256 + pixel[2] * 256) * 0.01);
+      // var height = (pixel[0] * 256 + pixel[1] + pixel[2] / 256) - 32768;
+      queryresultsDiv.innerHTML = '<p>' + height.toFixed(1) + 'm (Not accurate - Have patience work in progress!!)</p>'
+    }, {
+      layerFilter: function (candidate) { return (candidate === dtm); }
+    });
   });
 
 }
