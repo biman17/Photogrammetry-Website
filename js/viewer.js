@@ -103,8 +103,12 @@ function init() {
     img.src = graphicUrl;
   };
 
-  var switcher = new ol.control.LayerSwitcher();
-  switcher.useLegendGraphics = true;
+  
+  var switcher = new ol.control.LayerSwitcher({
+    tipLabel: 'Layers',
+    useLegendGraphics: true,
+    collapsed: false
+  });
   navMap.addControl(switcher);
 
   switcher.on('drawlist', function (e) {
