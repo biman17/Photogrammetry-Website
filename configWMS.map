@@ -45,17 +45,15 @@ MAP
         END
         CLASS
 
-            EXPRESSION ([pixel] >= 1840 AND [pixel] < 2126)
+            EXPRESSION ([pixel] >= 1840 AND [pixel] <= 2126)
           
             STYLE
           
-              COLORRANGE 0 128 70 250 180 0 
-          
-              DATARANGE 1840 2126
-          
+              COLORRANGE 101 155 0 148 53 0          
+              DATARANGE 1840 2126       
               RANGEITEM "pixel"
-          
-            END #STYLE
+         
+          END #STYLE
           
           END 
         #   OPACITY 60
@@ -70,7 +68,7 @@ LAYER
     DATA "data/bodity_reprojected.tif"
     PROCESSING "BANDS=1"
     PROCESSING "CONTOUR_ITEM=elevation"
-    PROCESSING "CONTOUR_INTERVAL=10"
+    PROCESSING "CONTOUR_INTERVAL=20"
     CLASS
       STYLE
         WIDTH 0.5
@@ -78,4 +76,17 @@ LAYER
       END
     END
   END #layer
+
+LEGEND
+  KEYSIZE 16 12
+  LABEL
+      COLOR 0 0 0
+      TYPE TRUETYPE
+      FONT "arial"
+      SIZE 10
+  END #label
+  STATUS ON
+  POSITION LR
+END #legend
+
 END

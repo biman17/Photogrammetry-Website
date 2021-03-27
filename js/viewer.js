@@ -39,7 +39,7 @@ function init() {
   });
 
   contour = new ol.layer.Tile({
-    title: 'Contour (10m)',
+    title: 'Contour (2 0m)',
     visible: true,
     source: new ol.source.TileWMS({
       url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",

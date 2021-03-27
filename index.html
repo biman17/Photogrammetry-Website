@@ -69,12 +69,10 @@
                 <div class="col-lg-8 mx-auto">
                     <h2 class="text-white mb-4">ABOUT OUR WEBSITE</h2>
                     <p class="text-white-50">
-                        The photogrammetric product developed on this website is a Digital Surface Model (DSM) using the
-                        process of aerial image matching. The DSM explains the varying height of features such as
-                        buildings, trees, and other artefacts above the ground of a part of Boditi, Ethiopia. The
-                        product is available in two forms: a vector representation of DSM with varying colours, each
-                        depicting a specific height and a raster representation of DSM. This product is essential for
-                        applications such as flood modelling, 3D city modelling, and crisis management.</p>
+                        The photogrammetric products developed on this website are a Digital Terrain Model (DTM) and
+                        Digital Surface Model (DSM) using the process of aerial image matching of Boditi, Ethiopia. The
+                        product is available in the form of raster representation. These products are essential for
+                        applications such as urban cadastre, flood modelling, 3D city modelling, and crisis management.</p>
                 </div>
             </div>
             <div class="row justify-content-center no-gutters">
@@ -105,7 +103,7 @@
                     <div class="bg-black text-center h-100 project">
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-left">
-                                <h4 class="text-white">Digital Terrain Model (DTM)</h4>
+                                <h4 class="text-white">What is a DTM?</h4>
                                 <p class="mb-0 text-white-50">DTM can be described as a 3D representation of a terrain
                                     surface consisting of X, Y, Z coordinates stored in digital form. It includes not
                                     only heights and elevations but other geographical elements and natural features
@@ -124,7 +122,7 @@
                     <div class="bg-black text-center h-100 project">
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-right">
-                                <h4 class="text-white">Digital Surface Model (DSM)</h4>
+                                <h4 class="text-white">What is a DSM?</h4>
                                 <p class="mb-0 text-white-50">An elevation model that includes the tops of buildings,
                                     trees, powerlines, and any other objects. Commonly this is seen as a canopy model
                                     and only 'sees' ground where there is nothing else covering it.</p>
@@ -215,26 +213,13 @@
         <br>
         <div class="container">
             <div class="feedback_container">
-                <form action="formreceiver.py" method="post">
-
-                    <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
-
-                    <label for="lname">Last Name</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-                    <label for="subject">Subject</label>
-                    <textarea id="subject" name="subject" placeholder="Write your feedback here.."
-                        style="height:200px"></textarea>
-
-                    <input type="submit" value="Submit">
-
-                </form>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item"
+                        src="https://docs.google.com/forms/d/1nL4RMorjYQR8adNLNNFkMFGp5ch2reK9TsavW9KtndQ/edit"></iframe>
+                </div>
             </div>
         </div>
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/170E_WUFkfeDUTHz37hO3tTwo4Vcu7hd4G53QyUdsL5U/viewform?embedded=true"></iframe>
-        </div>
+
     </section>
 
     <!-- Contact-->
@@ -286,7 +271,8 @@
             <div class="social d-flex justify-content-center">
                 <a class="mx-2" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                 <a class="mx-2" href="https://www.facebook.com/facebook/"><i class="fab fa-facebook-f"></i></a>
-                <a class="mx-2" href="https://github.com/G-Anjanappa/Photogrammetry-Website"><i class="fab fa-github"></i></a>
+                <a class="mx-2" href="https://github.com/G-Anjanappa/Photogrammetry-Website"><i
+                        class="fab fa-github"></i></a>
             </div>
         </div>
     </section>
