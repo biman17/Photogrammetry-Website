@@ -19,13 +19,13 @@ function init() {
     visible: true,
     preload: Infinity,
     source: new ol.source.BingMaps({
-        // We need a key to get the layer from the provider. 
-        // Sign in with Bing Maps and you will get your key (for free)
-        key: 'Ap5mgiXRshxB7Fnt76VHYWdUn_lNWr5nZ_4Bu49YiyYbo5EfjfnFpT9CXNe_X96w',
-        imagerySet: 'AerialWithLabels', // or'Aerial' 'Road', 'AerialWithLabels', etc.
-        // use maxZoom 19 to see stretched tiles instead of the Bing Maps
-        // "no photos at this zoom level" tiles
-        maxZoom: 19
+      // We need a key to get the layer from the provider. 
+      // Sign in with Bing Maps and you will get your key (for free)
+      key: 'Ap5mgiXRshxB7Fnt76VHYWdUn_lNWr5nZ_4Bu49YiyYbo5EfjfnFpT9CXNe_X96w',
+      imagerySet: 'AerialWithLabels', // or'Aerial' 'Road', 'AerialWithLabels', etc.
+      // use maxZoom 19 to see stretched tiles instead of the Bing Maps
+      // "no photos at this zoom level" tiles
+      maxZoom: 19
     })
   });
 
@@ -33,19 +33,19 @@ function init() {
     title: 'DTM (5m)',
     visible: true,
     source: new ol.source.TileWMS({
-      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
       params: { "LAYERS": "dtm", "TILED": true }
     })
   });
 
-  // contour = new ol.layer.Tile({
-  //   title: 'Contour (5m)',
-  //   visible: true,
-  //   source: new ol.source.TileWMS({
-  //     url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
-  //     params: { "LAYERS": "contour", "TILED": true }
-  //   })
-  // });
+  contour = new ol.layer.Tile({
+    title: 'Contour (10m)',
+    visible: true,
+    source: new ol.source.TileWMS({
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
+      params: { "LAYERS": "contour", "TILED": true }
+    })
+  });
 
 
 
@@ -61,14 +61,14 @@ function init() {
   navMap.addLayer(baseLayers);
   // create a map view:
   navMap.addLayer(dtm);
-  // navMap.addLayer(contour_5m);  
+  navMap.addLayer(contour);
 
 
 
   navMap.setView(
     new ol.View({
       center: ol.proj.transform([37.86, 6.96], 'EPSG:4326', 'EPSG:3857'),
-      zoom: 12.5
+      zoom: 13
     })    //center coords and zoom level:
   );
   navMap.addControl(new ol.control.Zoom());
@@ -82,9 +82,9 @@ function init() {
   var switcher = new ol.control.LayerSwitcher();
   navMap.addControl(switcher);
 
-  switcher.on('drawlist', function(e) {
-  console.log('Switcher drawlist');
+  switcher.on('drawlist', function (e) {
+    console.log('Switcher drawlist');
 
-})
-  
+  })
+
 }
