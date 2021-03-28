@@ -13,11 +13,11 @@ MAP
             "wms_srs" "EPSG:4326 EPSG:3857" #latlon
             "wms_enable_request" "*"
             "ows_enable_request" "*"
-            "map" "d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map"
+            "map" "d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map"
             "ows_schemas_location" "http://schemas.opengeospatial.net"
             "ows_title" "PhotogrammetryWMS"
-            "ows_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&"
-            "wms_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&"
+            "ows_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&"
+            "wms_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&"
             "ows_srs" "EPSG:4326 EPSG:3857" #latlon
             "wms_feature_info_mime_type" "text/plain"
             "wms_feature_info_mime_type" "text/html"
