@@ -74,8 +74,8 @@ function init() {
 
   navMap.setView(
     new ol.View({
-      center: ol.proj.transform([37.86, 6.96], 'EPSG:4326', 'EPSG:3857'),
-      zoom: 13
+      center: ol.proj.transform([37.8638, 6.9552], 'EPSG:4326', 'EPSG:3857'),
+      zoom: 13.5
     })    //center coords and zoom level:
   );
   navMap.addControl(new ol.control.Zoom());

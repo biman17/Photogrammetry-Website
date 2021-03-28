@@ -57,43 +57,88 @@ MAP
      
     END # layer dtm
 
-LAYER
-    NAME "contour"
-    TYPE LINE
-    STATUS ON
-    TOLERANCE 5
-    TOLERANCEUNITS pixels
-    METADATA
-      "wms_title" "contour"
-      "wms_include_items" "all"
-    END
-    PROJECTION
-      "init=epsg:4326"
-    END
-    CONNECTIONTYPE CONTOUR
-    DATA "data/bodity_reprojected.tif"
-    PROCESSING "BANDS=1"
-    PROCESSING "CONTOUR_ITEM=elevation"
-    PROCESSING "CONTOUR_INTERVAL=20"
-    GEOMTRANSFORM (smoothsia(generalize([shape], 0.25*[data_cellsize])))
-    LABELITEM "elevation"
-    CLASS
-      TEMPLATE "empty"
-      STYLE
-        WIDTH 0.5
-        COLOR 0 0 0
-      END #style 
-      # LABEL
-      #   COLOR  0 0 0
-      #   OUTLINECOLOR 255 255 255
-      #   FONT "sans"
-      #   SIZE 10
-      #   ANGLE AUTO
-      #   POSITION AUTO
-      # END #label 
+# LAYER
+#   NAME "contour"
+#   TYPE POLYGON
+#   DATA "data/contour"
+#   STATUS ON
+#   CLASS
+#   NAME "Countries"
+#   OUTLINECOLOR 0 0 0
+#   END
+# END
+# LAYER
+#     NAME "contour"
+#     TYPE LINE
+#     STATUS ON
+#     TOLERANCE 5
+#     TOLERANCEUNITS pixels
+#     METADATA
+#       "wms_title" "contour"
+#       "wms_include_items" "all"
+#     END
+#     PROJECTION
+#       "init=epsg:4326"
+#     END
+#     CONNECTIONTYPE CONTOUR
+#     DATA "data/bodity_reprojected.tif"
+#     PROCESSING "BANDS=1"
+#     PROCESSING "CONTOUR_ITEM=elevation"
+#     PROCESSING "CONTOUR_INTERVAL=20"
+#     GEOMTRANSFORM (smoothsia(generalize([shape], 0.25*[data_cellsize])))
+#     LABELITEM "elevation"
+#     CLASS
+#       TEMPLATE "empty"
+#       STYLE
+#         WIDTH 0.5
+#         COLOR 0 0 0
+#       END #style 
+#       # LABEL
+#       #   COLOR  0 0 0
+#       #   OUTLINECOLOR 255 255 255
+#       #   FONT "sans"
+#       #   SIZE 10
+#       #   ANGLE AUTO
+#       #   POSITION AUTO
+#       # END #label 
 
-    END #class 
+#     END #class 
     
-  END #layer
+#   END #layer
+
+
+LAYER
+  NAME "contour"
+  TYPE LINE
+  STATUS ON
+  TOLERANCE 5
+  TOLERANCEUNITS pixels
+  METADATA
+    "wms_title" "contour"
+    "wms_include_items" "all"
+  END
+  PROJECTION
+    "init=epsg:4326"
+  END
+  DATA "data/contours_15m.shp"
+  LABELITEM "elevation"
+  CLASS
+    TEMPLATE "empty"
+    STYLE
+      # WIDTH 0.5
+      COLOR 0 0 0
+    END #style 
+    # LABEL
+    #   COLOR  0 0 0
+    #   OUTLINECOLOR 255 255 255
+    #   FONT "sans"
+    #   SIZE 10
+    #   ANGLE AUTO
+    #   POSITION AUTO
+    # END #label 
+
+  END #class 
+  
+END #layer
 
 END #map
