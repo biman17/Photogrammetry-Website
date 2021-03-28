@@ -32,17 +32,19 @@ function init() {
 
   dtm = new ol.layer.Tile({
     title: 'DTM (5m)',
+    baseLayer: 'true',
     visible: true,
     source: new ol.source.TileWMS({
-      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
       params: { "LAYERS": "dtm", "TILED": true }
     })
   });
   dsm = new ol.layer.Tile({
     title: 'DSM (5m)',
+    baseLayer: 'true',
     visible: false,
     source: new ol.source.TileWMS({
-      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
       params: { "LAYERS": "dsm", "TILED": true }
     })
   });
@@ -52,7 +54,7 @@ function init() {
     title: 'Contour (15m)',
     visible: true,
     source: new ol.source.TileWMS({
-      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
       params: { "LAYERS": "contour", "TILED": true }
     })
   });
@@ -141,7 +143,7 @@ function init() {
       evt.coordinate, viewResolution, 'EPSG:3857',
       {
         'INFO_FORMAT': 'text/plain',  //format to ask info in
-        'QUERY_LAYERS': 'dtm'
+        'QUERY_LAYERS': 'dtm,dsm,contour'
       } //layers to ask info for
     );
     // an iframe in the div fires the request and retrieves the results:
