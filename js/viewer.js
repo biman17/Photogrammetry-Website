@@ -34,7 +34,7 @@ function init() {
     title: 'DTM (5m)',
     visible: true,
     source: new ol.source.TileWMS({
-      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
       params: { "LAYERS": "dtm", "TILED": true }
     })
   });
@@ -43,17 +43,17 @@ function init() {
     title: 'Contour (20m)',
     visible: true,
     source: new ol.source.TileWMS({
-      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
       params: { "LAYERS": "contour", "TILED": true }
     })
   });
-  
-  dtm.on('precompose', function(evt) {
+
+  dtm.on('precompose', function (evt) {
     evt.context.imageSmoothingEnabled = false;
     evt.context.webkitImageSmoothingEnabled = false;
     evt.context.mozImageSmoothingEnabled = false;
     evt.context.msImageSmoothingEnabled = false;
-});
+  });
 
 
   var baseLayers = new ol.layer.Group({
@@ -94,7 +94,7 @@ function init() {
     img.src = graphicUrl;
   };
 
-  
+
   var switcher = new ol.control.LayerSwitcher({
     tipLabel: 'Layers',
     useLegendGraphics: true,
@@ -112,7 +112,7 @@ function init() {
   });
 
 
-  navMap.on('pointermove', function(evt) {
+  navMap.on('pointermove', function (evt) {
     // first clear the contents of the results div:
     document.getElementById("queryresultsDiv").innerHTML = "";
     // retrieve map resolution details from the map object
@@ -120,8 +120,10 @@ function init() {
     // now create a url with an OGC GetFeatureInfo request:
     var url = dtm.getSource().getGetFeatureInfoUrl(
       evt.coordinate, viewResolution, 'EPSG:3857',
-      {'INFO_FORMAT': 'text/plain',  //format to ask info in
-        'QUERY_LAYERS': 'dtm'} //layers to ask info for
+      {
+        'INFO_FORMAT': 'text/plain',  //format to ask info in
+        'QUERY_LAYERS': 'dtm'
+      } //layers to ask info for
     );
     // an iframe in the div fires the request and retrieves the results:
     document.getElementById("queryresultsDiv").innerHTML =

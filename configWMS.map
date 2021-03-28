@@ -43,49 +43,49 @@ MAP
          "init=epsg:4326"
         END
         CLASS
-          NAME "Elevation: 1830 - 1840m"
-              EXPRESSION ([pixel] >= 1830 AND [pixel] <= 1840)
+          NAME "Elevation: 1840 - 1912m"
+              EXPRESSION ([pixel] >= 1840 AND [pixel] <= 1912)
   
               STYLE
             
-                COLORRANGE 68 1 84 58 82 139        
-                DATARANGE 1830 1840       
+                COLORRANGE 16 93 39 153 199 97  
+                DATARANGE 1840 1912       
                 RANGEITEM "pixel"
            
             END #STYLE
           END #class
           CLASS
-            NAME "Elevation: 1991m"
-                EXPRESSION ([pixel] >= 1840 AND [pixel] <= 1991)
+            NAME "Elevation: 1913 - 1983m"
+                EXPRESSION ([pixel] > 1912 AND [pixel] <= 1983)
     
                 STYLE
               
-                  COLORRANGE 58 82 139 32 144 141          
-                  DATARANGE 1840 1991       
+                  COLORRANGE 153 199 97 241 241 182          
+                  DATARANGE 1913 1983       
                   RANGEITEM "pixel"
              
               END #STYLE
             END #class
             CLASS
-              NAME "Elevation: 2054m"
-                  EXPRESSION ([pixel] >= 1991 AND [pixel] <= 2054)
+              NAME "Elevation: 1984 - 2056m"
+                  EXPRESSION ([pixel] > 1983 AND [pixel] <= 2056)
       
                   STYLE
                 
-                    COLORRANGE 32 144 141 93 201 98          
-                    DATARANGE 1991 2054       
+                    COLORRANGE 241 241 182 230 164 102          
+                    DATARANGE 1984 2056       
                     RANGEITEM "pixel"
                
                 END #STYLE
               END #class
               CLASS
-                NAME "Elevation: <2054m"
-                    EXPRESSION ([pixel] >= 2054 AND [pixel] <= 2150)
+                NAME "Elevation: 2056 - 2126m"
+                    EXPRESSION ([pixel] > 2056 AND [pixel] <= 2130)
         
                     STYLE
                   
-                      COLORRANGE 93 201 98 253 231 37          
-                      DATARANGE 2054 2150       
+                      COLORRANGE 230 164 102 112 12 14
+                      DATARANGE 2057 2126       
                       RANGEITEM "pixel"
                  
                   END #STYLE
