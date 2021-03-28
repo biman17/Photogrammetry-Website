@@ -9,11 +9,15 @@ MAP
     EXTENT 36.82 6.3 39.85 7.9 # lon/lat extents of Boditi
     WEB
         METADATA
+            "wms_title" "PhotogrammetryWMS"
+            "wms_srs" "EPSG:4326 EPSG:3857" #latlon
+            "wms_enable_request" "*"
             "ows_enable_request" "*"
             "map" "d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map"
             "ows_schemas_location" "http://schemas.opengeospatial.net"
             "ows_title" "PhotogrammetryWMS"
             "ows_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&"
+            "wms_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&"
             "ows_srs" "EPSG:4326 EPSG:3857" #latlon
             "wms_feature_info_mime_type" "text/plain"
             "wms_feature_info_mime_type" "text/html"
@@ -26,27 +30,22 @@ MAP
     LAYER
         NAME dtm
         STATUS ON
-     
-        # layer type for raster data:
         TYPE RASTER
-     
-        # the value below makes sure that you do NOT see the layer
-        # if you zoom in to a scale  larger then 1:1 million:
-     
+        TEMPLATE "empty"
         # DATA is now just a simple path to the file:
         DATA "data/bodity_reprojected.tif"
-
         CLASSITEM "[pixel]"
         METADATA
-            "ows_title" "dtm"
+            "wms_title" "dtm"
+            "wms_include_items" "all"
         END
         PROJECTION
          "init=epsg:4326"
         END
         CLASS
-        NAME "Elevation: 1840 - 2126m"
+        NAME "Elevation: 1830 - 2150m"
             EXPRESSION ([pixel] >= 1840 AND [pixel] <= 2126)
-          
+
             STYLE
           
               COLORRANGE 101 155 0 148 53 0          
@@ -54,28 +53,92 @@ MAP
               RANGEITEM "pixel"
          
           END #STYLE
-          
-          END 
-        #   OPACITY 60
+        END #class
      
     END # layer dtm
 
-LAYER
-    NAME "contour"
-    TYPE LINE
-    STATUS DEFAULT
-    CONNECTIONTYPE CONTOUR
-    DATA "data/bodity_reprojected.tif"
-    PROCESSING "BANDS=1"
-    PROCESSING "CONTOUR_ITEM=elevation"
-    PROCESSING "CONTOUR_INTERVAL=20"
-    CLASS
-      NAME "contour"
+# LAYER
+#   NAME "contour"
+#   TYPE POLYGON
+#   DATA "data/contour"
+#   STATUS ON
+#   CLASS
+#   NAME "Countries"
+#   OUTLINECOLOR 0 0 0
+#   END
+# END
+# LAYER
+#     NAME "contour"
+#     TYPE LINE
+#     STATUS ON
+#     TOLERANCE 5
+#     TOLERANCEUNITS pixels
+#     METADATA
+#       "wms_title" "contour"
+#       "wms_include_items" "all"
+#     END
+#     PROJECTION
+#       "init=epsg:4326"
+#     END
+#     CONNECTIONTYPE CONTOUR
+#     DATA "data/bodity_reprojected.tif"
+#     PROCESSING "BANDS=1"
+#     PROCESSING "CONTOUR_ITEM=elevation"
+#     PROCESSING "CONTOUR_INTERVAL=20"
+#     GEOMTRANSFORM (smoothsia(generalize([shape], 0.25*[data_cellsize])))
+#     LABELITEM "elevation"
+#     CLASS
+#       TEMPLATE "empty"
+#       STYLE
+#         WIDTH 0.5
+#         COLOR 0 0 0
+#       END #style 
+#       # LABEL
+#       #   COLOR  0 0 0
+#       #   OUTLINECOLOR 255 255 255
+#       #   FONT "sans"
+#       #   SIZE 10
+#       #   ANGLE AUTO
+#       #   POSITION AUTO
+#       # END #label 
 
-      STYLE
-        WIDTH 0.5
-        COLOR 0 0 0
-      END
-    END
-  END #layer
-END
+#     END #class 
+    
+#   END #layer
+
+
+LAYER
+  NAME "contour"
+  TYPE LINE
+  STATUS ON
+  TOLERANCE 5
+  TOLERANCEUNITS pixels
+  METADATA
+    "wms_title" "contour"
+    "wms_include_items" "all"
+  END
+  PROJECTION
+    "init=epsg:4326"
+  END
+  DATA "data/contours_15m.shp"
+  LABELITEM "elevation"
+  CLASS
+    TEMPLATE "empty"
+    STYLE
+      # WIDTH 0.5
+      COLOR 0 0 0
+    END #style 
+    # LABEL
+    #   COLOR  0 0 0
+    #   OUTLINECOLOR 255 255 255
+    #   FONT "sans"
+    #   SIZE 10
+    #   ANGLE AUTO
+    #   POSITION AUTO
+    # END #label 
+
+  END #class 
+  
+END #layer
+
+END #map
