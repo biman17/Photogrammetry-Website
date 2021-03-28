@@ -1,0 +1,19 @@
+<PAMDataset>
+  <Metadata domain="Esri">
+    <MDI key="PyramidResamplingType">NEAREST</MDI>
+  </Metadata>
+  <PAMRasterBand band="1">
+    <UnitType>metre</UnitType>
+    <Metadata>
+      <MDI key="RepresentationType">THEMATIC</MDI>
+      <MDI key="STATISTICS_COVARIANCES">3466.988970457878</MDI>
+      <MDI key="STATISTICS_MAXIMUM">2135</MDI>
+      <MDI key="STATISTICS_MEAN">1978.3645663153</MDI>
+      <MDI key="STATISTICS_MINIMUM">1843</MDI>
+      <MDI key="STATISTICS_SKIPFACTORX">1</MDI>
+      <MDI key="STATISTICS_SKIPFACTORY">1</MDI>
+      <MDI key="STATISTICS_STDDEV">58.880943163626</MDI>
+      <MDI key="STATISTICS_VALID_PERCENT">65.7</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>

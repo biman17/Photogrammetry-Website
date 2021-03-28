@@ -93,6 +93,71 @@ MAP
      
     END # layer dtm
 
+    LAYER
+      NAME dsm
+      STATUS ON
+      TYPE RASTER
+      TEMPLATE "empty"
+      # DATA is now just a simple path to the file:
+      DATA "data/bodity_reprojected_dsm.tif"
+      CLASSITEM "[pixel]"
+      METADATA
+          "wms_title" "dsm"
+          "wms_include_items" "all"
+      END
+      PROJECTION
+       "init=epsg:4326"
+      END
+      CLASS
+        NAME "Elevation: 1843 - 1916m"
+            EXPRESSION ([pixel] >= 1843 AND [pixel] <= 1916)
+
+            STYLE
+          
+              COLORRANGE 16 93 39 153 199 97  
+              DATARANGE 1843 1916       
+              RANGEITEM "pixel"
+         
+          END #STYLE
+        END #class
+        CLASS
+          NAME "Elevation: 1917 - 1989m"
+              EXPRESSION ([pixel] > 1916 AND [pixel] <= 1989)
+  
+              STYLE
+            
+                COLORRANGE 153 199 97 241 241 182          
+                DATARANGE 1917 1989       
+                RANGEITEM "pixel"
+           
+            END #STYLE
+          END #class
+          CLASS
+            NAME "Elevation: 1990 - 2062m"
+                EXPRESSION ([pixel] > 1989 AND [pixel] <= 2062)
+    
+                STYLE
+              
+                  COLORRANGE 241 241 182 230 164 102          
+                  DATARANGE 1990 2062       
+                  RANGEITEM "pixel"
+             
+              END #STYLE
+            END #class
+            CLASS
+              NAME "Elevation: 2063 - 2135m"
+                  EXPRESSION ([pixel] > 2062 AND [pixel] <= 2140)
+      
+                  STYLE
+                
+                    COLORRANGE 230 164 102 112 12 14
+                    DATARANGE 2063 2135       
+                    RANGEITEM "pixel"
+               
+                END #STYLE
+              END #class 
+   
+  END # layer dtm
 
 LAYER
   NAME "contour"

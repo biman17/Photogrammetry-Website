@@ -38,9 +38,18 @@ function init() {
       params: { "LAYERS": "dtm", "TILED": true }
     })
   });
+  dsm = new ol.layer.Tile({
+    title: 'DSM (5m)',
+    visible: false,
+    source: new ol.source.TileWMS({
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
+      params: { "LAYERS": "dsm", "TILED": true }
+    })
+  });
+
 
   contour = new ol.layer.Tile({
-    title: 'Contour (20m)',
+    title: 'Contour (15m)',
     visible: true,
     source: new ol.source.TileWMS({
       url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&",
@@ -65,9 +74,19 @@ function init() {
     ]
   });
 
+  var rasterLayers = new ol.layer.Group({
+    title: 'Raster Layers',
+    openInLayerSwitcher: true,
+    layers: [
+      dtm,
+      dsm
+    ]
+  });
+
   navMap.addLayer(baseLayers);
+  navMap.addLayer(rasterLayers);
   // create a map view:
-  navMap.addLayer(dtm);
+
   navMap.addLayer(contour);
 
 
