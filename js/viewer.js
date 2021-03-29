@@ -32,7 +32,6 @@ function init() {
 
   dtm = new ol.layer.Tile({
     title: 'DTM (5m)',
-    baseLayer: 'true',
     visible: true,
     source: new ol.source.TileWMS({
       url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
@@ -41,8 +40,7 @@ function init() {
   });
   dsm = new ol.layer.Tile({
     title: 'DSM (5m)',
-    baseLayer: 'true',
-    visible: false,
+    visible: true,
     source: new ol.source.TileWMS({
       url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
       params: { "LAYERS": "dsm", "TILED": true }
@@ -50,12 +48,21 @@ function init() {
   });
 
 
-  contour = new ol.layer.Tile({
-    title: 'Contour (15m)',
+  contour_dtm = new ol.layer.Tile({
+    title: 'DTM Contour (15m)',
     visible: true,
     source: new ol.source.TileWMS({
       url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
       params: { "LAYERS": "contour", "TILED": true }
+    })
+  });
+
+  contour_dsm = new ol.layer.Tile({
+    title: 'DSM Contour (15m)',
+    visible: true,
+    source: new ol.source.TileWMS({
+      url: "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&",
+      params: { "LAYERS": "contour_dsm", "TILED": true }
     })
   });
 
@@ -76,20 +83,28 @@ function init() {
     ]
   });
 
-  var rasterLayers = new ol.layer.Group({
-    title: 'Raster Layers',
-    openInLayerSwitcher: true,
+  var DTMLayers = new ol.layer.Group({
+    title: 'DTM Layers',
+    openInLayerSwitcher: false,
     layers: [
       dtm,
-      dsm
+      contour_dtm
+    ]
+  });
+
+  var DSMLayers = new ol.layer.Group({
+    title: 'DSM Layers',
+    openInLayerSwitcher: false,
+    layers: [
+      dsm,
+      contour_dsm
     ]
   });
 
   navMap.addLayer(baseLayers);
-  navMap.addLayer(rasterLayers);
-  // create a map view:
-
-  navMap.addLayer(contour);
+  navMap.addLayer(DSMLayers);
+  navMap.addLayer(DTMLayers);
+ 
 
 
 
@@ -131,6 +146,17 @@ function init() {
     var resolution = event.target.getResolution();
     updateLegend(resolution);
   });
+
+  var layers = new ol.layer.Group({
+    title: 'All Layers',
+    layers: [
+      dtm,
+      dsm,
+      contour_dtm,
+      contour_dsm
+    ]
+  });
+
 
 
   navMap.on('pointermove', function (evt) {

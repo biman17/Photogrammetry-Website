@@ -175,11 +175,46 @@ LAYER
   DATA "data/contours_15m.shp"
   LABELITEM "elevation"
   CLASS
-    NAME "Contour 15m"
+    NAME "DTM Contour 15m"
     TEMPLATE "empty"
     STYLE
       # WIDTH 0.5
       COLOR 0 0 0
+    END #style 
+    # LABEL
+    #   COLOR  0 0 0
+    #   OUTLINECOLOR 255 255 255
+    #   FONT "sans"
+    #   SIZE 10
+    #   ANGLE AUTO
+    #   POSITION AUTO
+    # END #label 
+
+  END #class 
+  
+END #layer
+
+LAYER
+  NAME "contour_dsm"
+  TYPE LINE
+  STATUS ON
+  TOLERANCE 5
+  TOLERANCEUNITS pixels
+  METADATA
+    "wms_title" "contour_dsm"
+    "wms_include_items" "all"
+  END
+  PROJECTION
+    "init=epsg:4326"
+  END
+  DATA "data/contour_dsm_15m.shp"
+  LABELITEM "elevation"
+  CLASS
+    NAME "DSM Contour 15m"
+    TEMPLATE "empty"
+    STYLE
+      # WIDTH 0.5
+      COLOR 0 16 52
     END #style 
     # LABEL
     #   COLOR  0 0 0
