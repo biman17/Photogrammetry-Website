@@ -13,11 +13,11 @@ MAP
             "wms_srs" "EPSG:4326 EPSG:3857" #latlon
             "wms_enable_request" "*"
             "ows_enable_request" "*"
-            "map" "d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map"
+            "map" "d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map"
             "ows_schemas_location" "http://schemas.opengeospatial.net"
             "ows_title" "PhotogrammetryWMS"
-            "ows_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&"
-            "wms_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2451573/Photogrammetry-Website/configWMS.map&"
+            "ows_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&"
+            "wms_onlineresource" "https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&"
             "ows_srs" "EPSG:4326 EPSG:3857" #latlon
             "wms_feature_info_mime_type" "text/plain"
             "wms_feature_info_mime_type" "text/html"
@@ -175,7 +175,7 @@ LAYER
   DATA "data/contours_15m.shp"
   LABELITEM "elevation"
   CLASS
-    NAME "DTM Contour 15m"
+    NAME "DTM & DSM Contour 15m"
     TEMPLATE "empty"
     STYLE
       # WIDTH 0.5
@@ -214,7 +214,7 @@ LAYER
     TEMPLATE "empty"
     STYLE
       # WIDTH 0.5
-      COLOR 0 16 52
+      COLOR 255 0 0
     END #style 
     # LABEL
     #   COLOR  0 0 0
