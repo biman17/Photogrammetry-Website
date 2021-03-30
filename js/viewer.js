@@ -3,9 +3,34 @@ var navMap;
 /*-- Initialization function --*/
 function init() {
 
+  var control = [
+    new ol.control.MousePosition({
+      target: 'mouse_container',
+      // undefinedHTML: '&nbsp;',
+      projection: 'EPSG:4326',
+      coordinateFormat: function(coordinate) {
+        return ol.coordinate.format(coordinate, '{x}, {y}', 4);
+      }
+    }),
+    new ol.control.ScaleLine(),
+    new ol.control.Zoom(),
+    // new ol.control.ZoomSlider(),   
+    new ol.control.ZoomToExtent({extent: [4210292, 772401, 4218939, 779586]}),
+    new ol.control.FullScreen()
+  ];
 
+  // navMap.addControl(new ol.control.Zoom());
+  // navMap.addControl(new ol.control.ScaleLine());
+  // navMap.addControl(new ol.control.MousePosition({
+  //   projection: 'EPSG:4326',
+  //   coordinateFormat: ol.coordinate.createStringXY(4)
+  // })
+  // );
   //define map object & link to placeholder div:
-  navMap = new ol.Map({ target: "map_container", attribution: false });
+  navMap = new ol.Map({ 
+    controls: control,
+    target: "map_container",
+     attribution: false });
   // define layer as tiled map:
   osmLayer = new ol.layer.Tile({
     title: 'OpenStreetMap',
@@ -66,12 +91,12 @@ function init() {
     })
   });
 
-  dtm.on('precompose', function (evt) {
-    evt.context.imageSmoothingEnabled = false;
-    evt.context.webkitImageSmoothingEnabled = false;
-    evt.context.mozImageSmoothingEnabled = false;
-    evt.context.msImageSmoothingEnabled = false;
-  });
+  // dtm.on('precompose', function (evt) {
+  //   evt.context.imageSmoothingEnabled = false;
+  //   evt.context.webkitImageSmoothingEnabled = false;
+  //   evt.context.mozImageSmoothingEnabled = false;
+  //   evt.context.msImageSmoothingEnabled = false;
+  // });
 
 
   var baseLayers = new ol.layer.Group({
@@ -114,21 +139,15 @@ function init() {
       zoom: 13.5
     })    //center coords and zoom level:
   );
-  navMap.addControl(new ol.control.Zoom());
-  navMap.addControl(new ol.control.ScaleLine());
-  navMap.addControl(new ol.control.MousePosition({
-    projection: 'EPSG:4326',
-    coordinateFormat: ol.coordinate.createStringXY(4)
-  })
-  );
 
 
 
-  var updateLegend = function (resolution) {
-    var graphicUrl = dtm.getLegendUrl(resolution);
-    var img = document.getElementById('legend');
-    img.src = graphicUrl;
-  };
+
+  // var updateLegend = function (resolution) {
+  //   var graphicUrl = dtm.getLegendUrl(resolution);
+  //   var img = document.getElementById('legend');
+  //   img.src = graphicUrl;
+  // };
 
 
   var switcher = new ol.control.LayerSwitcher({
@@ -142,21 +161,20 @@ function init() {
     console.log('Switcher drawlist');
 
   })
-  navMap.getView().on('change:resolution', function (event) {
-    var resolution = event.target.getResolution();
-    updateLegend(resolution);
-  });
+  // navMap.getView().on('change:resolution', function (event) {
+  //   var resolution = event.target.getResolution();
+  //   updateLegend(resolution);
+  // });
 
-  var layers = new ol.layer.Group({
-    title: 'All Layers',
-    layers: [
-      dtm,
-      dsm,
-      contour_dtm,
-      contour_dsm
-    ]
-  });
-
+  // var layers = new ol.layer.Group({
+  //   title: 'All Layers',
+  //   layers: [
+  //     dtm,
+  //     dsm,
+  //     contour_dtm,
+  //     contour_dsm
+  //   ]
+  // });
 
 
   navMap.on('pointermove', function (evt) {
