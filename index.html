@@ -146,6 +146,9 @@
                     <p class="text-black-70" style="font-size: 20px;">
                         The maps below show DTM and DSM for the city of Boditi, Ethiopia. Both the products are of 5m
                         resolution. It also includes contour lines drawn at an interval of 15m for both the rasters.
+                        <strong>Hover the mouse on displayed rasters to see the feature information in the "Feature
+                            Info" tab.</strong>
+                        You can also enable/disable raster layers and switch between the OSM and Bing baselayers.
                     </p>
                 </div>
             </div>
@@ -181,8 +184,14 @@
                         <div class="column">
                             <h5>Contour Lines</h5>
 
-                            <img src="https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&SERVICE=WMS&VERSION=1.3.0&SLD_VERSION=1.1.0&REQUEST=GetLegendGraphic&FORMAT=image/png&LAYER=contour"
-                                alt="">
+                            <div class="column">
+                                <img src="https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&SERVICE=WMS&VERSION=1.3.0&SLD_VERSION=1.1.0&REQUEST=GetLegendGraphic&FORMAT=image/png&LAYER=contour"
+                                    alt="">
+                            </div>
+                            <div class="column">
+                                <img src="https://gisedu.itc.utwente.nl/cgi-bin/mapserv.exe?map=d:/iishome/student/s2578956/Photogrammetry-Website/configWMS.map&SERVICE=WMS&VERSION=1.3.0&SLD_VERSION=1.1.0&REQUEST=GetLegendGraphic&FORMAT=image/png&LAYER=contour_dsm"
+                                    alt="">
+                            </div>
                         </div>
                         <br>
                         <div class="column">
@@ -220,7 +229,8 @@
                             The above maps are further visualized as 3D models of DTM and DSM. Since the study area is a
                             flat land, the variations in the elevation across the layer is not very prominently visible.
 
-                            Qgis2threejs plugin on QGIS software was used to render the 3D views which uses WebGL(Web Graphics Library), a
+                            Qgis2threejs plugin on QGIS software was used to render the 3D views which uses WebGL(Web
+                            Graphics Library), a
                             Javascript API for rendering high performance interactive 3D and 2D graphics with any
                             comaptible web browser.
                         </p>
@@ -242,11 +252,11 @@
             <div class="row align-items-center no-gutters mb-4 mb-lg-5">
                 <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="img/qc.jpg" alt="" />
                 </div>
-                    <div class="row justify-content-center no-gutters">
-                        <a class="btn btn-success js-scroll-trigger"
-                            href="https://gisedu.itc.utwente.nl/student/s2578956/Photogrammetry-Website/quality.html">Click
-                            to view assessment</a>
-                    </div>
+                <div class="row justify-content-center no-gutters">
+                    <a class="btn btn-success js-scroll-trigger"
+                        href="https://gisedu.itc.utwente.nl/student/s2578956/Photogrammetry-Website/quality.html">Click
+                        to view assessment</a>
+                </div>
             </div>
         </div>
     </section>

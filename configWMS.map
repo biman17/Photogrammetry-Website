@@ -175,7 +175,7 @@ LAYER
   DATA "data/contours_15m.shp"
   LABELITEM "elevation"
   CLASS
-    NAME "DTM & DSM Contour 15m"
+    NAME "DTM Contour 15m"
     TEMPLATE "empty"
     STYLE
       # WIDTH 0.5
