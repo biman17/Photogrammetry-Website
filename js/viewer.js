@@ -169,7 +169,7 @@ function init() {
       evt.coordinate, viewResolution, 'EPSG:3857',
       {
         'INFO_FORMAT': 'text/plain',  //format to ask info in
-        'QUERY_LAYERS': 'dtm,dsm,contour'
+        'QUERY_LAYERS': 'dtm,dsm,contour,contour_dsm'
       } //layers to ask info for
     );
     // an iframe in the div fires the request and retrieves the results:

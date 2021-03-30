@@ -130,34 +130,14 @@
             <br>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h4><strong>TRIANGULATION / ORIENTATION</strong></h4>
-                    <p class="mb-0 text-black-60 text-justify">
-                        The following processing step is to correlate the coordinates of points in the acquired image
-                        with the
-                        terrain's coordinates. The process starts with the External Orientation, where the terrain
-                        coordinates
-                        are converted into camera coordinates. After it, the coordinates are converted from 3D to 2D,
-                        have their
-                        possible less distortions corrected, and finally converted to the digital image coordinate
-                        system in the
-                        Internal Orientation. The processing then takes the digital image coordinates. During the
-                        Relative
-                        Orientation, the images are connected using the coincident points recorded in those images to
-                        create a
-                        stereo pair model or a block/bundle of images model. It is possible to extract height
-                        measurements on
-                        the features covered in at least two images. The Absolute Orientation places these models back
-                        in the
-                        world, and the triangulation places the whole image bundles. The digital image coordinates are
-                        then
-                        correlated to terrain coordinates, completing the full cycle. </p>
+                    <h4><strong>TYPES OF ORIENTATIONS</strong></h4>
                 </div>
             </div>
             <br>
             <div class="container">
                 <!-- Project One Row-->
                 <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-                    <div class="col-lg-6"><img class="img-fluid" src="img/mission_planning.jpg" alt="" /></div>
+                    <div class="col-lg-6"><img class="img-fluid" src="img/interior.jpg" alt="" /></div>
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
@@ -176,7 +156,7 @@
                 <br>
                 <!-- Project Two Row-->
                 <div class="row justify-content-center no-gutters">
-                    <div class="col-lg-6"><img class="img-fluid" src="img/gcp.jpg" alt="" /></div>
+                    <div class="col-lg-6"><img class="img-fluid" src="img/exterior.PNG" alt="" /></div>
                     <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
@@ -197,17 +177,74 @@
                     </div>
                 </div>
                 <br>
+                <br>
+                <br>
+                <br>
+                <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                    <div class="col-lg-6"><img class="img-fluid" src="img/relative.jpg" alt="" /></div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">RELATIVE ORIENTATION</h4>
+                                    <p class="text-white text-justify">
+                                        Relative orientation relative position and attitude relationship is recreated
+                                        for the
+                                        two diapositives by means of movements imparted to the projectors.
+                                    </p>
+                                    <hr class="d-none d-lg-block mb-0 ml-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!-- Project Two Row-->
+                <div class="row justify-content-center no-gutters">
+                    <div class="col-lg-6"><img class="img-fluid" src="img/absolute.PNG" alt="" /></div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">ABSOLUTE ORIENTATION</h4>
+                                    <p class="text-white text-justify">
+                                        Absolute orientation is to level the model. It requires a minimum of
+
+                                        three vertical control points distributed in the model so that they form a large
+                                        triangle.
+                                    </p>
+                                    <hr class="d-none d-lg-block mb-0 mr-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
             </div>
             <br>
             <br>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h4><strong>DATA COLLECTION</strong></h4>
-                    <p class="mb-0 text-black-60 text-justify">
-                        Data is extracted from the images, as Digital Surface Models, Digital Terrain Models, and
-                        Orthophotos, after all the preliminary procedures are finished. </p>
+            <div class="container">
+                <!-- Featured Project Row-->
+                <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0"
+                            src="img/aerial_triangulation.JPG" alt="" />
+                    </div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-left">
+                            <h4><strong>AERIAL TRIANGULATION</strong></h4>
+                            <p class="mb-0 text-black-60 text-justify">Aerial triangulation is the process of
+                                determining the X, Y, and Z ground coordinates of individual points based on photo
+                                coordinate measurements. The applications lie in
+
+                                extending or densifying ground control through strips and/or blocks of photos for use in
+                                subsequent photogrammetric operations..</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <p class="text-black text-justify"><strong>Source of Definitions:</strong> Elements of Photogrammetry with
+                Applications in GIS, 4th edition, ISBN: 978-0-07-176111-6.
+            </p>
 
         </div>
     </section>
@@ -226,4 +263,4 @@
     <script src="js/scripts.js"></script>
 </body>
 
-</html>
+</html>>
