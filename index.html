@@ -40,13 +40,18 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#products">Products</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#quality">Quality</a>
+                    <li class="nav-item" style="font-size:x-large"><a class="nav-link js-scroll-trigger"
+                            href="#about">Home</a></li>
+                    <li class="nav-item" style="font-size:x-large"><a class="nav-link js-scroll-trigger"
+                            href="#products">Products</a></li>
+                    <li class="nav-item" style="font-size:x-large"><a class="nav-link js-scroll-trigger"
+                            href="#quality">Quality</a>
                     </li>
                     </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#feedback">Feedback</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">About Us</a></li>
+                    <li class="nav-item" style="font-size:x-large"><a class="nav-link js-scroll-trigger"
+                            href="#feedback">Feedback</a></li>
+                    <li class="nav-item" style="font-size:x-large"><a class="nav-link js-scroll-trigger"
+                            href="#contact">About Us</a></li>
 
                 </ul>
             </div>
@@ -90,11 +95,13 @@
 
     <!-- Projects-->
     <section class="projects-section bg-light" id="products">
-        <!-- <div class="row">
-            <div class="col-md">
-                <h2 class="mx-item text-center bg-black text-white mb-4">PRODUCTS</h2>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-black mb-4"><strong>PRODUCTS</strong></h2>
+                </div>
             </div>
-        </div> -->
+        </div>
 
         <div class="container">
             <!-- Project One Row-->
@@ -142,9 +149,10 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="text-black mb-4"><strong>PRODUCTS</strong></h2>
+                    <h2 class="text-black mb-4"><strong>GEO-WEB PRODUCTS</strong></h2>
                     <p class="text-black-70" style="font-size: 20px;">
-                        The maps below show DTM and DSM for the city of Boditi, Ethiopia. Both the products are of 5m
+                        The maps below show DTM and DSM for the city of Boditi, Ethiopia rendered using geo-web
+                        services. Both the products are of 5m
                         resolution. It also includes contour lines drawn at an interval of 15m for both the rasters.
                         <strong>Hover the mouse on displayed rasters to see the feature information in the "Feature
                             Info" tab.</strong>
@@ -165,9 +173,11 @@
                 <div class="column">
                     <div id="map_container"
                         style="position: relative; width: 1000px; height: 600px; overflow: hidden; border: 2px solid rgb(0, 0, 0); margin: 5px">
-                        
+
                     </div>
-                    <div id="mouse_container" style="position: absolute; font-family:'Courier New', Courier, monospace; font-size: larger; font-weight:bold; top:0 18px; left:30%;text-align:justify;"></div>
+                    <div id="mouse_container"
+                        style="position: absolute; font-family:'Courier New', Courier, monospace; font-size: larger; font-weight:bold; top:0 18px; left:30%;text-align:justify;">
+                    </div>
                 </div>
 
                 <div class="column">
@@ -247,6 +257,13 @@
     </section>
 
     <section class="projects-section bg-light" id="quality">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-black mb-4"><strong>QUALITY CHECK (QC)</strong></h2>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <!-- Featured Project Row-->
             <div class="row align-items-center no-gutters mb-4 mb-lg-5">
@@ -262,23 +279,24 @@
     </section>
 
     <section class="projects-section bg-light" id="feedback">
-        <!-- <div class="row justify-content-center no-gutters">
-            <a class="btn btn-success js-scroll-trigger"
-                href="https://gisedu.itc.utwente.nl/student/s2578956/Photogrammetry-Website/definitions.html">Click
-                to view reviews</a>
-        </div>
-        <br>
-        <br> -->
-        <div class="container">
-            <div class="feedback_container">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item"
-                        src="https://docs.google.com/forms/d/1nL4RMorjYQR8adNLNNFkMFGp5ch2reK9TsavW9KtndQ/edit"></iframe>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-black mb-4"><strong>FEEDBACK</strong></h2>
+                    <p class="text-black-70" style="font-size: 20px;">
+                        Working group 1 was assigned for the peer review process of this website. The review was on the
+                        draft version of the website, inline with the rubric provided by the faculty.
+                    </p>
+                    <div class="row justify-content-center no-gutters">
+                        <a class="btn btn-success js-scroll-trigger"
+                            href="https://gisedu.itc.utwente.nl/student/s2578956/Photogrammetry-Website/quality.html">Click
+                            to view peer review comments</a>
+                    </div>
                 </div>
             </div>
         </div>
-
     </section>
+
 
     <!-- Contact-->
     <section class="contact-section bg-black" id="contact">
@@ -290,6 +308,7 @@
                             <img class="img-fluid" src="img/alex.jpg" alt="" />
                             <hr class="my-4" />
                             <h4 class="text-uppercase m-0">Alex Peixe</h4>
+                            <div class="small text-black-50">Photogrammetrist</div>
                             <div class="small text-black-50">a.r.peixe@student.utwente.nl</div>
                         </div>
                     </div>
@@ -297,9 +316,10 @@
                 <div class="col-md-4 mb-3 mb-md-0">
                     <div class="card py-4 h-100">
                         <div class="card-body text-center">
-                            <img class="img-fluid" src="img/azeb.jpg" alt="" />
+                            <img class="img-fluid" src="img/azeb.png" alt="" />
                             <hr class="my-4" />
                             <h4 class="text-uppercase m-0">Azeb Kahsay</h4>
+                            <div class="small text-black-50">Data Acquisition & Photogrammetrist</div>
                             <div class="small text-black-50">a.g.kahsay@student.utwente.nl</div>
                         </div>
                     </div>
@@ -307,9 +327,10 @@
                 <div class="col-md-4 mb-3 mb-md-0">
                     <div class="card py-4 h-100">
                         <div class="card-body text-center">
-                            <img class="img-fluid" src="img/biman.jpg" alt="" />
+                            <img class="img-fluid" src="img/biman.png" alt="" />
                             <hr class="my-4" />
                             <h4 class="text-uppercase m-0">Biman Biswas</h4>
+                            <div class="small text-black-50">Web GIS Developer</div>
                             <div class="small text-black-50">b.biswas@student.utwente.nl</div>
                         </div>
                     </div>
@@ -320,6 +341,7 @@
                             <img class="img-fluid" src="img/geet.jpeg" alt="" />
                             <hr class="my-4" />
                             <h4 class="text-uppercase m-0">Geethanjali Anjanappa</h4>
+                            <div class="small text-black-50">Web GIS Developer</div>
                             <div class="small text-black-50">g.anjanappa@student.utwente.nl</div>
                         </div>
                     </div>

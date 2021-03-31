@@ -26,19 +26,41 @@
 
 <body id="page-top">
 
-    <nav class="navbar navbar-expand-sm navbar-light fixed-top" id="mainNav">
-        <a href="https://gisedu.itc.utwente.nl/student/s2578956/Photogrammetry-Website/index.html"
-            class="previous btn-sm btn-black" style="margin: 15px">&laquo; Go Back</a>
-        <div class="container" style="margin: 15px">
-            <h4><strong>WEB MAPPING PROCESSES</strong></h4>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <a class="navbar-brand js-scroll-trigger"
+            href="https://gisedu.itc.utwente.nl/student/s2578956/Photogrammetry-Website/index.html#about">Go Back</a>
+        <button class="navbar-toggler navbar-toggler-right previous btn-black" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" style="font-size:x-large"><a class="nav-link js-scroll-trigger"
+                            href="#page-top">Home</a></li>
+                    <li class="nav-item" style="font-size:x-large"><a class="nav-link js-scroll-trigger"
+                            href="#home">Description</a></li>
+
+                </ul>
+            </div>
         </div>
-
     </nav>
+    <!-- Masthead-->
+    <header class="masthead"
+        style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url(img/Web_mapping_cover.jpg);background-size: cover; background-repeat:no-repeat">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0 text-uppercase text-white">Web Mapping Process</h1>
+            </div>
+        </div>
+    </header>
 
-    <section class="projects-section bg-light" id="quality">
+    <section class="projects-section bg-light" id="home">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto">
+                <div class="col-lg-8 mx-auto" style="font-size: 20px;">
                     <p class="mb-0 text-black-60 text-justify">
                         According to wikipedia, <strong>Web Mapping</strong> is the process of using the maps delivered
                         by geographic information systems (GIS) on the Internet, more specifically in the World Wide Web
@@ -60,7 +82,8 @@
                         </li>
                         <li><b>JavaScript</b> is a programming language that defines how that content interacts with
                             users.</li>
-                        <li><b>Common Gateway Interface(CGI) application</b> is a standard for interfacing external applications with web servers.</li>
+                        <li><b>Common Gateway Interface(CGI) application</b> is a standard for interfacing external
+                            applications with web servers.</li>
                     </ul>
                     <div class="row justify-content-center no-gutters">
                         <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="img/web_technology.png"
@@ -70,12 +93,15 @@
                     <br>
                     <p>For web mapping, the HTML, CSS and JavaScript code in a web page often
                         bring other image content into the web page and make requests to servers
-                        as users interact with those web pages. CGI application is executed on request, so that the web server is able to
+                        as users interact with those web pages. CGI application is executed on request, so that the web
+                        server is able to
                         provide dynamic/ real time information (lets the world
                         run a program on your system)</p>
                     <h4><strong>Mapserver</strong></h4>
-                    <p>MapServer is an Open Source geographic data rendering engine. Service instance for this server is configured by a map file, a
-                        configuration which defines the contents (data, layers, extent, attributes, etc...). The figure below
+                    <p>MapServer is an Open Source geographic data rendering engine. Service instance for this server is
+                        configured by a map file, a
+                        configuration which defines the contents (data, layers, extent, attributes, etc...). The figure
+                        below
                         shows the setup of Mapserver used in this website.</p>
                     <div class="row justify-content-center no-gutters">
                         <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="img/mapserver.png"
