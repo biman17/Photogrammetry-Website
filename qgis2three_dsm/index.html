@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>3D VISUALIZATION</title>
+<title></title>
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <link rel="stylesheet" type="text/css" href="./Qgis2threejs.css">
 <script src="./threejs/three.min.js"></script>
@@ -12,22 +12,6 @@
 <script src="./Qgis2threejs.js"></script>
 <script src="./dat-gui/dat.gui.min.js"></script>
 <script src="./dat-gui_panel.js"></script>
-<script src="./ray-tracing-renderer/RayTracingRenderer.js"></script>
-<script src="./raytracing.js"></script>
-<style type="text/css">
-body {
-  background-color: darkgray;
-  overflow: visible;
-}
-
-#view canvas {
-  position: absolute;
-}
-
-#footer {
-  font-size: xx-small;
-}
-</style>
 </head>
 <body>
 <div id="view">
@@ -94,7 +78,6 @@ body {
       <div id="about">
         This page was made with <a href="https://www.qgis.org/" target="_blank">QGIS</a> and <a href="https://github.com/minorua/Qgis2threejs" target="_blank">Qgis2threejs</a> plugin (version 2.6).
         <div>Powered by <a href="https://threejs.org/" target="_blank">three.js</a>,
-        <a href="https://github.com/hoverinc/ray-tracing-renderer" target="_blank">Ray Tracing Renderer</a>,
         <a href="https://code.google.com/p/dat-gui/" target="_blank">dat-gui</a>
         <span id="lib_proj4js"> and <a href="https://trac.osgeo.org/proj4js/" target="_blank">Proj4js</a></span>.</div>
       </div>
@@ -106,31 +89,29 @@ body {
 <div id="progress"><div id="bar"></div></div>
 
 <!-- header and footer -->
-<div id="header">3D VISUALIZATION OF BODITY, ETHIOPIA</div>
-<div id="footer">BODITY, ETHIOPIA</div>
+<div id="header">BODITI DSM 3D VISUALIZATION</div>
+<div id="footer">NORTH</div>
 
 <script>
-Q3D.Config.autoZShift = true;
 Q3D.Config.coord.latlon = true;
+Q3D.Config.localMode = true;
 Q3D.Config.northArrow.visible = true;
-Q3D.Config.northArrow.color = 0x666666;
+Q3D.Config.northArrow.color = 0x01a2ff;
 if (typeof proj4 === "undefined") document.getElementById("lib_proj4js").style.display = "none";
 
 var container = document.getElementById("view"),
     app = Q3D.application,
     gui = Q3D.gui;
 
-init(container);        // initialize viewer (in raytracing.js)
+app.init(container);    // initialize viewer
 gui.init();             // initialize dat-gui panel
 
 // load the scene
-app.loadSceneFile("./data/index/scene.json", function (scene) {
+app.loadSceneFile("./data/index/scene.js", function (scene) {
   // scene file has been loaded
   app.start();
 
   gui.initLayersFolder(scene);
-  gui.initLightsFolder(scene);
-  gui.initRenderFolder();
 
 }, function (scene) {
   // all relevant files have been loaded
@@ -138,7 +119,7 @@ app.loadSceneFile("./data/index/scene.json", function (scene) {
   // custom plane z range
   var zMin = undefined,
       zMax = undefined;
-  Q3D.gui.initCustomPlaneFolder(zMin, zMax);
+  gui.initCustomPlaneFolder(zMin, zMax);
 
 });
 </script>

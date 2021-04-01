@@ -1258,7 +1258,7 @@ limitations:
 
         if (Q3D.Config.coord.latlon) {
           var lonLat = proj4(app.scene.userData.proj).inverse([pt.x, pt.y]);
-          e.innerHTML = Q3D.Utils.convertToDMS(lonLat[1], lonLat[0]) + ", Elev. " + pt.z.toFixed(2);
+          e.innerHTML = Q3D.Utils.convertToDMS(lonLat[1], lonLat[0]) + ", Elev. " + (1843+pt.z).toFixed(2);
         }
         else {
           e.innerHTML = [pt.x.toFixed(2), pt.y.toFixed(2), pt.z.toFixed(2)].join(", ");
