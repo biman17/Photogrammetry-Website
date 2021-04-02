@@ -26,82 +26,39 @@
 
 <body id="page-top">
 
-    <nav class="navbar navbar-expand-sm navbar-light fixed-top" id="mainNav">
-        <a href="https://gisedu.itc.utwente.nl/student/s2578956/Photogrammetry-Website/index.html"
-            class="previous btn-sm btn-black">&laquo; Go Back</a>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <a class="navbar-brand js-scroll-trigger"
+            href="https://gisedu.itc.utwente.nl/student/s2451573/Photogrammetry-Website/index.html#feedback">Go Back</a>
+        <button class="navbar-toggler navbar-toggler-right previous btn-black" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" style="font-size:x-large"><a class="nav-link js-scroll-trigger"
+                            href="#page-top">Home</a></li>
+                    <li class="nav-item" style="font-size:x-large"><a class="nav-link js-scroll-trigger"
+                            href="#feedback">Feedback</a></li>
 
-    <section class="projects-section bg-light" id="quality">
-        <div class="col-6">
-            <h4><strong>PHOTOGRAMMETRY</strong></h4>
-            <p class="text-black text-justify">
-                The American Society for Photogrammetry and Remote Sensing (ASPRS) defines it as as “the art, science,
-                and technology of obtaining reliable information about physical objects and the environment, through
-                processes of recording, measuring, and interpreting imagery and digital representations of energy
-                patterns derived from noncontact sensor systems”.
-            </p>
-            <p class="text-black text-justify">
-                The aerial photogrammetry is a branch which comprises the collection of aerial imagery with the
-                objective of producing 2D and 3D topographic maps, orthophotos and digital terrain models by its
-                orientation and georeferencing.
-            </p>
-
-            <br>
-            <h4><strong>PHOTOGRAMMETRIC WORKFLOW</strong></h4>
-            <p class="text-black text-justify">
-                Photogrammetric workflow is the sequence of steps to be followed from the definition of the project
-                demands and constraints, going through the acquisition of the images and its processing to the final
-                product's obtainment.
-            </p>
-            <br>
-
-            <h4><strong>FLIGHT PLANNING</strong></h4>
-            <p class="text-black text-justify">
-                It is the stage of Photogrammetric workflow that defines the means and methods for the images' primary
-                acquisition. It is chosen the equipment and method to obtain the accuracy of extracted geo-information
-                and the spatial and spectral resolution of imagery according to the project's necessities and taken into
-                account the possible flight restrictions and weather and environmental conditions.
-            </p>
-            <p class="text-black text-justify">
-                For this purpose, it is decided what sensor, lens, flight height, and image overlap will be used, and
-                also chosen the use of GNSS or IMU and the location of ground control points.
-            </p>
-            <br>
-
-            <h4><strong>GROUND CONTROL DETERMINATION</strong></h4>
-            <p class="text-black text-justify">
-                During this stage, the ground control points chosen in the previous step are materialized in the ground
-                and have their coordinates registered for future image orientation.
-            </p>
-
-            <br>
-            <h4><strong>AERIAL PHOTOGRAPHY/IMAGE ACQUISITION</strong></h4>
-            <p class="text-black text-justify">
-                It is the phase where the proper flight for image acquisition is performed, following the planning
-                premises.
-            </p>
-
-            <br>
-            <h4><strong>TRIANGULATION / ORIENTATION</strong></h4>
-            <p class="text-black text-justify">
-                The following processing step is to correlate the coordinates of points in the acquired image with the
-                terrain's coordinates. The process starts with the External Orientation, where the terrain coordinates
-                are converted into camera coordinates. After it, the coordinates are converted from 3D to 2D, have their
-                possible less distortions corrected, and finally converted to the digital image coordinate system in the
-                Internal Orientation. The processing then takes the digital image coordinates. During the Relative
-                Orientation, the images are connected using the coincident points recorded in those images to create a
-                stereo pair model or a block/bundle of images model. It is possible to extract height measurements on
-                the features covered in at least two images. The Absolute Orientation places these models back in the
-                world, and the triangulation places the whole image bundles. The digital image coordinates are then
-                correlated to terrain coordinates, completing the full cycle. </p>
-
-            <br>
-            <h4><strong>DATA COLLECTION</strong></h4>
-            <p class="text-black text-justify">
-                Data is extracted from the images, as Digital Surface Models, Digital Terrain Models, and Orthophotos,
-                after all the preliminary procedures are finished.
-            </p>
+                </ul>
+            </div>
         </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead"
+        style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url(img/feedback.png);background-size: cover; background-repeat:no-repeat">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0 text-uppercase text-white">PEER REVIEW</h1>
+            </div>
+        </div>
+    </header>
+
+    <section class="projects-section bg-light" id="feedback">
+        <object data="Feedback.pdf" type="application/pdf" style="min-height:100vh;width:100%"></object>
     </section>
 
     <!-- Footer-->
