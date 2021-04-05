@@ -27,73 +27,7 @@ MAP
         END #web metadata
     END #web
 
-    LAYER
-        NAME dtm
-        STATUS ON
-        TYPE RASTER
-        TEMPLATE "empty"
-        # DATA is now just a simple path to the file:
-        DATA "data/bodity_reprojected.tif"
-        CLASSITEM "[pixel]"
-        METADATA
-            "wms_title" "dtm"
-            "wms_include_items" "value_0"
-        END
-        PROJECTION
-         "init=epsg:4326"
-        END
-        CLASS
-          NAME "Elevation: 1840 - 1912m"
-              EXPRESSION ([pixel] >= 1840 AND [pixel] <= 1912)
-  
-              STYLE
-            
-                COLORRANGE 16 93 39 153 199 97  
-                DATARANGE 1840 1912       
-                RANGEITEM "pixel"
-           
-            END #STYLE
-          END #class
-          CLASS
-            NAME "Elevation: 1913 - 1983m"
-                EXPRESSION ([pixel] > 1912 AND [pixel] <= 1983)
     
-                STYLE
-              
-                  COLORRANGE 153 199 97 241 241 182          
-                  DATARANGE 1913 1983       
-                  RANGEITEM "pixel"
-             
-              END #STYLE
-            END #class
-            CLASS
-              NAME "Elevation: 1984 - 2056m"
-                  EXPRESSION ([pixel] > 1983 AND [pixel] <= 2056)
-      
-                  STYLE
-                
-                    COLORRANGE 241 241 182 230 164 102          
-                    DATARANGE 1984 2056       
-                    RANGEITEM "pixel"
-               
-                END #STYLE
-              END #class
-              CLASS
-                NAME "Elevation: 2056 - 2126m"
-                    EXPRESSION ([pixel] > 2056 AND [pixel] <= 2130)
-        
-                    STYLE
-                  
-                      COLORRANGE 230 164 102 112 12 14
-                      DATARANGE 2057 2126       
-                      RANGEITEM "pixel"
-                 
-                  END #STYLE
-                END #class
-              PROCESSING "ITEMS=value_0" 
-     
-    END # layer dtm
-
     LAYER
       NAME dsm
       STATUS ON
@@ -159,7 +93,114 @@ MAP
               END #class 
           PROCESSING "ITEMS=value_0"
    
-  END # layer dtm
+  END # layer dsm
+
+  LAYER
+    NAME dtm
+    STATUS ON
+    TYPE RASTER
+    TEMPLATE "empty"
+    # DATA is now just a simple path to the file:
+    DATA "data/bodity_reprojected.tif"
+    CLASSITEM "[pixel]"
+    METADATA
+        "wms_title" "dtm"
+        "wms_include_items" "value_0"
+    END
+    PROJECTION
+     "init=epsg:4326"
+    END
+    CLASS
+      NAME "Elevation: 1840 - 1912m"
+          EXPRESSION ([pixel] >= 1840 AND [pixel] <= 1912)
+
+          STYLE
+        
+            COLORRANGE 16 93 39 153 199 97  
+            DATARANGE 1840 1912       
+            RANGEITEM "pixel"
+       
+        END #STYLE
+      END #class
+      CLASS
+        NAME "Elevation: 1913 - 1983m"
+            EXPRESSION ([pixel] > 1912 AND [pixel] <= 1983)
+
+            STYLE
+          
+              COLORRANGE 153 199 97 241 241 182          
+              DATARANGE 1913 1983       
+              RANGEITEM "pixel"
+         
+          END #STYLE
+        END #class
+        CLASS
+          NAME "Elevation: 1984 - 2056m"
+              EXPRESSION ([pixel] > 1983 AND [pixel] <= 2056)
+  
+              STYLE
+            
+                COLORRANGE 241 241 182 230 164 102          
+                DATARANGE 1984 2056       
+                RANGEITEM "pixel"
+           
+            END #STYLE
+          END #class
+          CLASS
+            NAME "Elevation: 2056 - 2126m"
+                EXPRESSION ([pixel] > 2056 AND [pixel] <= 2130)
+    
+                STYLE
+              
+                  COLORRANGE 230 164 102 112 12 14
+                  DATARANGE 2057 2126       
+                  RANGEITEM "pixel"
+             
+              END #STYLE
+            END #class
+          PROCESSING "ITEMS=value_0" 
+ 
+END # layer dtm
+
+
+
+LAYER
+  NAME "contour_dsm"
+  # EXPRESSION {contour_dsm_15m}
+  TYPE LINE
+  STATUS ON
+  TOLERANCE 5
+  TOLERANCEUNITS pixels
+  METADATA
+    "wms_title" "contour_dsm"
+    "wms_include_items" "all"
+  END
+  PROJECTION
+    "init=epsg:4326"
+  END
+  DATA "data/contour_dsm_15m.shp"
+  LABELITEM "elevation"
+  CLASS
+    NAME "DSM Contour 15m"
+    TEMPLATE "empty"
+    STYLE
+      # WIDTH 0.5
+      COLOR 136 14 79
+    END #style 
+    LABEL
+      COLOR 0 0 0
+      BUFFER 25
+      OUTLINECOLOR 255 255 255 
+      # FONT vera-bold
+      SIZE 11.5
+      ANGLE FOLLOW
+      POSITION AUTO
+      PARTIALS TRUE
+    END #label 
+
+  END #class 
+  PROCESSING "ITEMS=elevation"
+END #layer
 
 LAYER
   NAME "contour_dtm"
@@ -183,49 +224,16 @@ LAYER
       # WIDTH 0.5
       COLOR 0 0 0
     END #style 
-    # LABEL
-    #   COLOR  0 0 0
-    #   OUTLINECOLOR 255 255 255
-    #   FONT "sans"
-    #   SIZE 10
-    #   ANGLE AUTO
-    #   POSITION AUTO
-    # END #label 
-
-  END #class 
-  PROCESSING "ITEMS=elevation"
-END #layer
-
-LAYER
-  NAME "contour_dsm"
-  TYPE LINE
-  STATUS ON
-  TOLERANCE 5
-  TOLERANCEUNITS pixels
-  METADATA
-    "wms_title" "contour_dsm"
-    "wms_include_items" "all"
-  END
-  PROJECTION
-    "init=epsg:4326"
-  END
-  DATA "data/contour_dsm_15m.shp"
-  LABELITEM "elevation"
-  CLASS
-    NAME "DSM Contour 15m"
-    TEMPLATE "empty"
-    STYLE
-      # WIDTH 0.5
-      COLOR 255 0 0
-    END #style 
-    # LABEL
-    #   COLOR  0 0 0
-    #   OUTLINECOLOR 255 255 255
-    #   FONT "sans"
-    #   SIZE 10
-    #   ANGLE AUTO
-    #   POSITION AUTO
-    # END #label 
+    LABEL
+      COLOR 0 0 0
+      BUFFER 25
+      OUTLINECOLOR 255 255 255 
+      # FONT vera-bold
+      SIZE 11.5
+      ANGLE FOLLOW
+      POSITION AUTO
+      PARTIALS TRUE
+    END #label 
 
   END #class 
   PROCESSING "ITEMS=elevation"
